@@ -1,0 +1,8 @@
+prefix=/home/krsbi/sena_robot/devel
+
+Name: sena_tf
+Description: Description of sena_tf
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

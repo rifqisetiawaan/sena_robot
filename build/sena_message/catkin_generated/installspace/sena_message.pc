@@ -1,0 +1,8 @@
+prefix=/home/krsbi/sena_robot/install
+
+Name: sena_message
+Description: Description of sena_message
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: std_msgs message_runtime

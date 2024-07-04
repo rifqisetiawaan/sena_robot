@@ -1,0 +1,8 @@
+prefix=/home/krsbi/sena_robot/devel
+
+Name: sena_camera
+Description: Description of sena_camera
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,20 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/krsbi/sena_robot/devel/lib/python3/dist-packages",
+        "/home/krsbi/omnivisioncalib_ws/devel/lib/python3/dist-packages",
+        "/home/krsbi/ros_motion_planning/devel/lib/python3/dist-packages",
+        "/home/krsbi/navegation-ros/catkin_ws/devel/lib/python3/dist-packages",
+        "/home/krsbi/OpenBase/ROS/devel/lib/python3/dist-packages",
+        "/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/krsbi/sena_robot/devel/lib/python3/dist-packages",
+        "/home/krsbi/omnivisioncalib_ws/devel/lib/python3/dist-packages",
+        "/home/krsbi/ros_motion_planning/devel/lib/python3/dist-packages",
+        "/home/krsbi/navegation-ros/catkin_ws/devel/lib/python3/dist-packages",
+        "/home/krsbi/OpenBase/ROS/devel/lib/python3/dist-packages",
+        "/home/krsbi/sena2024_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

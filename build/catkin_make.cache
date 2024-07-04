@@ -1,0 +1,2 @@
+sena_camera:sena_control:sena_message:sena_rviz:sena_tf
+-DCATKIN_DEVEL_PREFIX=/home/krsbi/sena_robot/devel -DCMAKE_INSTALL_PREFIX=/home/krsbi/sena_robot/install -G Unix Makefiles
