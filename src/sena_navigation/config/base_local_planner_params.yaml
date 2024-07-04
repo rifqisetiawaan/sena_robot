@@ -1,0 +1,28 @@
+# DWAPlannerROS:
+# base_local_planner: "move_base/dwa_local_planner/DWAPlannerROS"
+base_local_planner: "dwa_local_planner/DWAPlannerROS"
+  acc_lim_x: 10  # Batas akselerasi dalam arah x
+  acc_lim_y: 10    # Batas akselerasi dalam arah y (0 untuk robot diferensial)
+  acc_lim_theta: 3.2  # Batas akselerasi sudut
+  max_vel_x: 5  # Kecepatan maksimum dalam arah x
+  min_vel_x: -5  # Kecepatan minimum dalam arah x (0.0 jika tidak ingin mundur)
+  max_vel_y: 5    # Kecepatan maksimum dalam arah y (0 untuk robot diferensial)
+  min_vel_y: -5    # Kecepatan minimum dalam arah y (0 untuk robot diferensial)
+  max_vel_theta: 5.0  # Kecepatan sudut maksimum
+  min_vel_theta: -5.0 # Kecepatan sudut minimum
+  min_in_place_vel_theta: -0.4  # Kecepatan sudut minimum saat berputar di tempat
+  xy_goal_tolerance: 0.0  # Toleransi posisi akhir dalam meter
+  yaw_goal_tolerance: 0.0  # Toleransi orientasi akhir dalam radian
+  latch_xy_goal_tolerance: false  # Menjaga toleransi posisi tujuan
+  sim_time: 10.0  # Waktu simulasi dalam detik
+  vx_samples: 20  # Sampel kecepatan linier dalam x
+  vy_samples: 20   # Sampel kecepatan linier dalam y
+  vtheta_samples: 20  # Sampel kecepatan sudut
+  controller_frequency: 10.0  # Frekuensi kontrol dalam Hertz
+  forward_point_distance: 0.325  # Jarak titik ke depan dalam meter
+  stop_time_buffer: 0.2  # Buffer waktu berhenti dalam detik
+  scaling_speed: 10  # Skala kecepatan
+  max_scaling_factor: 0.2  # Faktor skala maksimum
+  oscillation_reset_dist: 0.05  # Jarak reset osilasi dalam meter
+  prune_plan: false  # Memangkas rencana jalur yang sudah dilalui
+  meter_scoring: true

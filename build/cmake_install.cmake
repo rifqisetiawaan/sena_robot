@@ -132,6 +132,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/krsbi/sena_robot/build/gtest/cmake_install.cmake")
   include("/home/krsbi/sena_robot/build/sena_control/cmake_install.cmake")
+  include("/home/krsbi/sena_robot/build/sena_navigation/cmake_install.cmake")
   include("/home/krsbi/sena_robot/build/sena_rviz/cmake_install.cmake")
   include("/home/krsbi/sena_robot/build/sena_message/cmake_install.cmake")
   include("/home/krsbi/sena_robot/build/sena_camera/cmake_install.cmake")

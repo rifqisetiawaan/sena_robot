@@ -1,0 +1,35 @@
+# DWAPlannerROS:
+acc_lim_x: 2.5  # Berdasarkan percepatan maksimum motor
+acc_lim_y: 2.5
+acc_lim_th: 3.2
+max_vel_x: 0.55 # Berdasarkan kecepatan maksimum robot
+min_vel_x: 0.0
+max_vel_y: 0.1
+min_vel_y: -0.1
+max_vel_trans: 0.55
+min_vel_trans: 0.1
+max_vel_theta: 1.0
+min_vel_theta: -1.0
+# max_rot_vel: 1.0
+# min_rot_vel: 0.4
+
+xy_goal_tolerance: 0.10  # Toleransi posisi berdasarkan kebutuhan
+yaw_goal_tolerance: 0.05  # Toleransi orientasi berdasarkan kebutuhan
+latch_xy_goal_tolerance: false
+
+sim_time: 1.7
+sim_granularity: 0.025
+vx_samples: 3
+vy_samples: 10
+vtheta_samples: 20
+
+path_distance_bias: 32  # Mengurangi deselerasi mendekati halangan
+goal_distance_bias: 24  # Mempercepat mendekati target tanpa mengurangi kecepatan
+occdist_scale: 0.01  # Skala jarak halangan ditingkatkan untuk menghindari tabrakan
+forward_point_distance: 0.325  # Jarak titik depan disesuaikan dengan dimensi robot
+stop_time_buffer: 0.2  # Buffer waktu berhenti
+scaling_speed: 0.25
+max_scaling_factor: 0.2
+
+oscillation_reset_dist: 0.05  # Jarak reset osilasi
+holonomic_robot: true  # Berdasarkan jenis roda (omniwheel)

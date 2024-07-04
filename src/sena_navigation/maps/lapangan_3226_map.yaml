@@ -1,0 +1,6 @@
+image: /home/krsbi/sena2024_ws/src/maps/lapangan_3226_map.pgm
+resolution: 0.050000
+origin: [-0.60, -1.5, 1.57]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196

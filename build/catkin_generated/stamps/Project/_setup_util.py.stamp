@@ -268,7 +268,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = r'/usr/share/gazebo-11;/home/krsbi/omnivisioncalib_ws/devel;/home/krsbi/omnidrive_gazebo_ws/devel;/home/krsbi/ros_motion_planning/devel;/home/krsbi/dwa_ws/devel;/home/krsbi/navegation-ros/catkin_ws/devel;/home/krsbi/omni_robot_ws/devel;/home/krsbi/apf_ws/devel;/home/krsbi/OpenBase/ROS/devel;/home/krsbi/turtle_ws/devel;/home/krsbi/sena2024_ws/devel;/home/krsbi/catkin_ws/devel;/opt/ros/noetic;/usr/share/gazebo-11'.split(';')
+            CMAKE_PREFIX_PATH = r'/home/krsbi/omni_robot_ws/devel;/home/krsbi/apf_ws/devel;/home/krsbi/OpenBase/ROS/devel;/home/krsbi/turtle_ws/devel;/home/krsbi/sena2024_ws/devel;/home/krsbi/catkin_ws/devel;/opt/ros/noetic;/usr/share/gazebo-11'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []

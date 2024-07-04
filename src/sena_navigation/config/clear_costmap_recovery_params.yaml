@@ -1,0 +1,2 @@
+clear_costmap_recovery:
+  enabled: false

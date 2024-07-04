@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/krsbi/sena_robot/devel/lib;/home/krsbi/omnivisioncalib_ws/devel/lib;/home/krsbi/omnidrive_gazebo_ws/devel/lib;/home/krsbi/ros_motion_planning/devel/lib;/home/krsbi/dwa_ws/devel/lib;/home/krsbi/navegation-ros/catkin_ws/devel/lib;/home/krsbi/omni_robot_ws/devel/lib;/home/krsbi/apf_ws/devel/lib;/home/krsbi/OpenBase/ROS/devel/lib;/home/krsbi/turtle_ws/devel/lib;/home/krsbi/sena2024_ws/devel/lib;/home/krsbi/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/krsbi/sena_robot/devel/lib;/home/krsbi/omni_robot_ws/devel/lib;/home/krsbi/apf_ws/devel/lib;/home/krsbi/OpenBase/ROS/devel/lib;/home/krsbi/turtle_ws/devel/lib;/home/krsbi/sena2024_ws/devel/lib;/home/krsbi/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

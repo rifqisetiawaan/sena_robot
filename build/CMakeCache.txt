@@ -528,6 +528,12 @@ sena_message_BINARY_DIR:STATIC=/home/krsbi/sena_robot/build/sena_message
 sena_message_SOURCE_DIR:STATIC=/home/krsbi/sena_robot/src/sena_message
 
 //Value Computed by CMake
+sena_navigation_BINARY_DIR:STATIC=/home/krsbi/sena_robot/build/sena_navigation
+
+//Value Computed by CMake
+sena_navigation_SOURCE_DIR:STATIC=/home/krsbi/sena_robot/src/sena_navigation
+
+//Value Computed by CMake
 sena_rviz_BINARY_DIR:STATIC=/home/krsbi/sena_robot/build/sena_rviz
 
 //Value Computed by CMake
@@ -705,7 +711,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

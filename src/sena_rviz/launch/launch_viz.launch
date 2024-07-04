@@ -1,0 +1,4 @@
+<launch>
+    <node type="rviz" name="rviz" pkg="rviz" respawn="false" args="-d $(find sena_rviz)/rviz/sena_rviz.rviz"
+        output="screen" />
+</launch>

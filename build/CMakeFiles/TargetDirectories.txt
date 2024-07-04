@@ -43,6 +43,13 @@
 /home/krsbi/sena_robot/build/sena_control/CMakeFiles/edit_cache.dir
 /home/krsbi/sena_robot/build/sena_control/CMakeFiles/test.dir
 /home/krsbi/sena_robot/build/sena_control/CMakeFiles/_catkin_empty_exported_target.dir
+/home/krsbi/sena_robot/build/sena_navigation/CMakeFiles/install/strip.dir
+/home/krsbi/sena_robot/build/sena_navigation/CMakeFiles/install/local.dir
+/home/krsbi/sena_robot/build/sena_navigation/CMakeFiles/install.dir
+/home/krsbi/sena_robot/build/sena_navigation/CMakeFiles/list_install_components.dir
+/home/krsbi/sena_robot/build/sena_navigation/CMakeFiles/rebuild_cache.dir
+/home/krsbi/sena_robot/build/sena_navigation/CMakeFiles/edit_cache.dir
+/home/krsbi/sena_robot/build/sena_navigation/CMakeFiles/test.dir
 /home/krsbi/sena_robot/build/sena_rviz/CMakeFiles/install/strip.dir
 /home/krsbi/sena_robot/build/sena_rviz/CMakeFiles/install/local.dir
 /home/krsbi/sena_robot/build/sena_rviz/CMakeFiles/install.dir

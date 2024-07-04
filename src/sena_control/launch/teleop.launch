@@ -3,7 +3,7 @@
     <node name="teleop_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" />
 
     <!-- PROCESS NODE START -->
-    <node name="process" pkg="process_motor" type="motor_process.py" output="screen" />
+    <node name="process" pkg="sena_control" type="motor_process.py" output="screen" />
 
     <!-- ARDUINO MEGA START -->
     <node name="serial_mega" pkg="rosserial_python" type="serial_node.py">
@@ -14,21 +14,14 @@
     <!-- ESP START -->
     <node name="serial_ESP" pkg="rosserial_python" type="serial_node.py">
         <param name="port" type="string" value="/dev/ttyUSB0" />
-        <param name="baud" type="int" value="57600" />
+        <param name="baud" type="int" value="57600" />  
     </node>
 
     <!-- TF ROBOT BROADCAST -->
 
     <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 map odom 100" />
-    <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen" />
+    <node name="robot_tf2_broadcast" pkg="sena_tf" type="robot_tf2_broadcast.py" output="screen" />
 
-    <!-- TF BASE FOOTPRINT BROADCAST -->
-
-    <!-- <node name="robot_tf2_broadcast" pkg="robot_tf_pkg" type="robot_tf2_broadcast.py" output="screen">
-        <param name="robot" type="string" value="robot" />
-    </node> -->
-
-    <node type="rviz" name="rviz" pkg="rviz" respawn="false"
-        args="-d /home/krsbi/sena2024_ws/src/robot_tf_pkg/rviz/sena_rviz.rviz" output="screen" />
-
+    <!-- RVIZ -->
+    <include file="$(find sena_rviz)/launch/launch_viz.launch" />
 </launch>

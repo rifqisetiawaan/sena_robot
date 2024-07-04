@@ -6,6 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("sena_control")
+subdirs("sena_navigation")
 subdirs("sena_rviz")
 subdirs("sena_message")
 subdirs("sena_camera")
