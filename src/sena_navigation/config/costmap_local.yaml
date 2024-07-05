@@ -1,5 +1,6 @@
 global_frame: odom
 rolling_window: false
+static_map: true
 
 # Konfigurasi layer costmap
 plugins:

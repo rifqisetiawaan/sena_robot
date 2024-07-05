@@ -1,5 +1,6 @@
 global_frame: map
 rolling_window: false
+static_map: true
 
 plugins:
   - {name: static,                  type: "costmap_2d::StaticLayer"}
@@ -13,4 +14,4 @@ static_layer:
 
 inflation_layer:
     inflation_radius: 0.1
-    cost_scaling_factor: 0
+    cost_scaling_factor: 1
