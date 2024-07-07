@@ -9,27 +9,16 @@ from robot_tf_pkg.msg import encoder
 import math
 import numpy as np
 
-# Initialize global variables
-xpos = 0
-ypos = 0
-xth = 0
-yth = 0
-zth = 0
-wth = 0
-
 ball_pub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
 
 def handle_robot_pose(msg):
     xpos = msg.position.x
     ypos = msg.position.y
-    xth = msg.orientation.x
-    yth = msg.orientation.y
-    zth = msg.orientation.z
-    wth = msg.orientation.w
-    theta = tf.transformations.euler_from_quaternion(msg.orientation)
+    theta = msg.orientation
+    theta = tf.transformations.euler_from_quaternion(theta)
     return xpos, ypos, theta
 
-def handle_ball_pose(msg, turtlename):    
+def handle_ball_pose(msg):    
     # Adjust coordinates cm -> m
     x = (msg.position.x / 100)
     y = (msg.position.y / 100)
@@ -73,18 +62,23 @@ def calculate_pac_with_rotation(p_ab, p_bc, theta):
     
     return p_ac
 
-# Contoh penggunaan
-p_ab = [5, 10, 0]
-p_bc = [2, 5, 0]
-theta = np.radians(45)  # Rotasi 45 derajat
-p_ac = calculate_pac_with_rotation(p_ab, p_bc, theta)
-
-print("p_ac =", p_ac)
+def eksekusi(robot_pose_msg, ball_pose_msg):
+    # Mendapatkan posisi robot dari handle_robot_pose()
+    robot_pos = handle_robot_pose(robot_pose_msg)
+    xpos_robot, ypos_robot, theta_robot = robot_pos
+    
+    # Mendapatkan posisi bola dari handle_ball_pose()
+    ball_pos = handle_ball_pose(ball_pose_msg)
+    x_ball, y_ball = ball_pos
+    
+    # Menampilkan hasilnya
+    print("Posisi robot (x, y, theta):", xpos_robot, ypos_robot, theta_robot)
+    print("Posisi bola (x, y):", x_ball, y_ball)
 
 def main():
     rospy.init_node('tf2_ball_broadcaster')
-    turtlename = rospy.get_param('~balls')
-    rospy.Subscriber('ballPos_topic', Pose, handle_ball_pose, turtlename)
+    # turtlename = rospy.get_param('~balls')
+    rospy.Subscriber('ballPos_topic', Pose, handle_ball_pose)
     rospy.Subscriber('robot_pos', Pose, handle_robot_pose)
     rospy.spin()
 

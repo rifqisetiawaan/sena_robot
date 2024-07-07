@@ -6,35 +6,31 @@ from geometry_msgs.msg import Pose, PoseStamped
 import geometry_msgs
 from robot_tf_pkg.msg import encoder
 import math
+import tf.transformations
 
 # Initialize global variables
 xpos = 0
 ypos = 0
-xth = 0
-yth = 0
-zth = 0
-wth = 0
 
 ball_pub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
 
 def handle_robot_pose(msg):
-    global xpos, ypos, xth, yth, zth, wth
+    global xpos, ypos
     xpos = msg.position.x
     ypos = msg.position.y
-    xth = msg.orientation.x
-    yth = msg.orientation.y
-    zth = msg.orientation.z
-    wth = msg.orientation.w
 
 def handle_ball_pose(msg, turtlename):
-    global xpos, ypos, xth, yth, zth, wth
+    global xpos, ypos
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
     posBall = PoseStamped()
+
+    xball = msg.position.x/100
+    yball = msg.position.y/100
     
     # Adjust coordinates
-    x = (msg.position.x / 100) - xpos
-    y = (msg.position.y / 100) - ypos
+    x = xball - xpos
+    y = yball - ypos
     # x = (msg.position.x / 100)
     # y = (msg.position.y / 100)
 
