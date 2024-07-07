@@ -4,6 +4,7 @@
 import rospy
 import numpy as np
 from geometry_msgs.msg import Pose
+from std_msgs.msg import Float32
 from open_base.msg import Movement
 import math
 import cv2
@@ -60,6 +61,7 @@ def px_real_conversion(dist_real, theta):
 def publish_message():
     Ballpub = rospy.Publisher('ballPos_topic', Pose, queue_size=10)
     Obspub = rospy.Publisher('obsPos_topic', Pose, queue_size=10)
+    Derajatpub = rospy.Publisher('derajat_bola', Float32, queue_size=10)
     rospy.init_node('camera_yolo', anonymous=False)
     
     rate = rospy.Rate(10)
@@ -69,6 +71,7 @@ def publish_message():
     model = YOLO('/home/krsbi/sena_robot/src/sena_camera/yolo/best.pt')
     poseBall = Pose()
     poseObs = Pose()
+    derajatbola = Float32()
     while not rospy.is_shutdown():
         # capture frame by frame
         ret, frame = cap.read()
@@ -160,6 +163,7 @@ def publish_message():
                     yreal = real_dist * math.cos(math.radians(theta))
                     poseBall.position.x = xreal
                     poseBall.position.y = yreal
+                    derajatbola.data = theta
                     poseBall.orientation.x = 0
                     poseBall.orientation.y = 0
                     poseBall.orientation.z = 0.71
@@ -220,6 +224,7 @@ def publish_message():
             # publish message
             Ballpub.publish(poseBall)
             Obspub.publish(poseObs)
+            Derajatpub.publish(derajatbola)
 
         rate.sleep()
         

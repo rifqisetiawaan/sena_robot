@@ -6,7 +6,7 @@ import tf2_ros
 import tf
 import tf2_geometry_msgs  # Untuk konversi quaternion
 from nav_msgs.msg import Odometry
-from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
+from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3, PoseStamped
 from robot_tf_pkg.msg import encoder
 import geometry_msgs
 import numpy as np
@@ -106,17 +106,21 @@ while not rospy.is_shutdown():
     # Set the velocity
     odom.child_frame_id = "base_link"
     odom.twist.twist = Twist(Vector3(vx, vy, 0), Vector3(0, 0, vth))
-    transform_stamped.header.stamp = rospy.Time.now()
-    transform_stamped.header.frame_id = "base_link"
-    transform_stamped.child_frame_id = "camera_link"
-    transform_stamped.transform.translation.x = 0.0
-    transform_stamped.transform.translation.y = 0.0
-    transform_stamped.transform.translation.z = 0.0
-    # q = tf_conversions.transformations.quaternion_from_euler(0, 0, msg.theta)
-    transform_stamped.transform.rotation.x = 0
-    transform_stamped.transform.rotation.y = 0
-    transform_stamped.transform.rotation.z = 0
-    transform_stamped.transform.rotation.w = 1
+
+
+     # base_link -> camera_link
+    t2 = geometry_msgs.msg.TransformStamped()
+    t2.header.stamp = rospy.Time.now()
+    t2.header.frame_id = "base_link"
+    t2.child_frame_id = "camera_link"
+    t2.transform.translation.x = 0.0  # Example translation
+    t2.transform.translation.y = 0.0
+    t2.transform.translation.z = 0.0
+    t2.transform.rotation.x = 0.0
+    t2.transform.rotation.y = 0.0
+    t2.transform.rotation.z = 0.0
+    t2.transform.rotation.w = 1.0
+    odom_broadcaster.sendTransform(t2)
 
 
     # Publish the message

@@ -23,8 +23,8 @@
   
     <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 map odom 100" />
     <node name="robot_tf2_broadcast" pkg="sena_tf" type="robot_tf2_broadcast.py" output="screen" />
-    <node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="0 0 0 0 0 0 1 base_link base_footprint 100" />
-    <!-- <node name="ball_tf2_braodcaster" pkg="sena_tf" type="ball_goal.py" output="screen" /> -->
+    <!-- <node pkg="tf" type="static_transform_publisher" name="target_broadcaster" args="0 0 0 0 0 0 1 camera_link balls 100" /> -->
+    <node name="ball_tf2_braodcaster" pkg="sena_tf" type="ball_goal.py" output="screen" />
 
     <!-- TF BALL BROADCAST -->
     <node name="ball_tf2_broadcaster" pkg="sena_tf" type="ball_tf2_broadcaster.py" output="screen">
