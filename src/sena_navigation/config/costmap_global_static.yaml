@@ -2,16 +2,17 @@ global_frame: map
 rolling_window: false
 static_map: true
 
+# Konfigurasi layer costmap
 plugins:
-  - {name: static,                  type: "costmap_2d::StaticLayer"}
-  - {name: inflation,               type: "costmap_2d::InflationLayer"}
+    - {name: static_layer, type: "costmap_2d::StaticLayer"}
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
 
 static_layer:
-    map_topic: map
     unknown_cost_value: -1
     lethal_cost_threshold: 255
-    track_unknown_space: false
+    map_topic: map
+    track_unknown_space: true
 
 inflation_layer:
     inflation_radius: 0.1
-    cost_scaling_factor: 1
+    cost_scaling_factor: 0

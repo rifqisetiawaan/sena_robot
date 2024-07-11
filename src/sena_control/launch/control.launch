@@ -1,7 +1,7 @@
 <launch>
     <!-- TELEOP KEYBOARD -->
     <!-- <node name="teleop_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" /> -->
-    <node name="camera_yolo" pkg="sena_camera" type="camera_yolo.py" />
+    <node name="camera_yolo" pkg="sena_camera" type="camera_yolo.py"  />
   
     <!-- ESP START -->
     <node name="serial_ESP" pkg="rosserial_python" type="serial_node.py">
@@ -24,7 +24,7 @@
     <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 map odom 100" />
     <node name="robot_tf2_broadcast" pkg="sena_tf" type="robot_tf2_broadcast.py" output="screen" />
     <!-- <node pkg="tf" type="static_transform_publisher" name="target_broadcaster" args="0 0 0 0 0 0 1 camera_link balls 100" /> -->
-    <node name="ball_tf2_braodcaster" pkg="sena_tf" type="ball_goal.py" output="screen" />
+    <node name="target_ball" pkg="sena_tf" type="ball_goal.py" output="screen" />
 
     <!-- TF BALL BROADCAST -->
     <node name="ball_tf2_broadcaster" pkg="sena_tf" type="ball_tf2_broadcaster.py" output="screen">
@@ -33,7 +33,7 @@
   
     <!-- MAP -->
     <!-- <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan_v3/lapangan_2632_polos.yaml" /> -->
-    <arg name="map_file" default="/home/krsbi/sena2024_ws/src/maps/lapangan3x3.yaml" />
+    <arg name="map_file" default="/home/krsbi/sena_robot/src/sena_navigation/maps/lapangan3x3.yaml" />
   
     <!-- Run the map server -->
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />

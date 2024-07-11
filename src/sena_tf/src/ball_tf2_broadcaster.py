@@ -4,20 +4,17 @@ import tf2_ros
 import tf.transformations as tf
 import tf2_geometry_msgs  # For quaternion conversions
 from geometry_msgs.msg import Pose, PoseStamped
-from std_msgs.msg import Float32
 import geometry_msgs
 from robot_tf_pkg.msg import encoder
 import math
 
-
-# ball_pub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
-
-def handle_derajat_bola(msg):
-    global theta
-    theta = msg.data
+def handle_robot_pose(msg):
+    global xpos, ypos
+    xpos = msg.position.x
+    ypos = msg.position.y
 
 def handle_ball_pose(msg, turtlename):
-    global theta
+    global xpos, ypos
     br = tf2_ros.TransformBroadcaster()
     t = geometry_msgs.msg.TransformStamped()
     posBall = PoseStamped()
@@ -34,8 +31,6 @@ def handle_ball_pose(msg, turtlename):
     # Rotate coordinates by 90 degrees counterclockwise
     x_rotated = y
     y_rotated = x
-
-    quaternion = tf.quaternion_from_euler(0,0,theta)
 
     if msg.position.x == 0 and msg.position.y == 0:
         t.header.stamp = rospy.Time.now()
@@ -88,7 +83,7 @@ def main():
     rospy.init_node('tf2_ball_broadcaster')
     turtlename = rospy.get_param('~balls')
     rospy.Subscriber('ballPos_topic', Pose, handle_ball_pose, turtlename)
-    rospy.Subscriber('derajat_bola', Float32, handle_derajat_bola)
+    rospy.Subscriber('robot_pos', Pose, handle_robot_pose)
     rospy.spin()
 
 if __name__ == '__main__':

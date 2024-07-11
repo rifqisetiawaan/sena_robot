@@ -26,6 +26,9 @@ def publish_goal():
             goal_in_camera_frame.pose.position.x = 0.0  # Example goal coordinates
             goal_in_camera_frame.pose.position.y = 0.0
             goal_in_camera_frame.pose.position.z = 0.0
+            goal_in_camera_frame.pose.orientation.x = 0.0
+            goal_in_camera_frame.pose.orientation.y = 0.0
+            goal_in_camera_frame.pose.orientation.z = 0.0
             goal_in_camera_frame.pose.orientation.w = 1.0
 
             # Transform the goal to map frame
