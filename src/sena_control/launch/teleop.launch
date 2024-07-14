@@ -24,4 +24,8 @@
 
     <!-- RVIZ -->
     <include file="$(find sena_rviz)/launch/launch_viz.launch" />
+
+    <!-- PLOTTER -->
+    <node name="plotter" pkg="sena_rviz" type="plotter.py" output="screen" />
+
 </launch>

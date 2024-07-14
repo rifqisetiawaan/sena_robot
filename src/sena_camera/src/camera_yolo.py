@@ -49,7 +49,7 @@ def radius_calc(x, y):
     return radius
 
 def regresi(px_dist):
-    real_dist = 10**(0.0091 * px_dist + 0.679)
+    real_dist = 10**(0.00894 * px_dist + 0.679)
     return real_dist
 
 # image to real world coordinate
@@ -82,7 +82,7 @@ def publish_message():
         poseObs.position.y = 0.0
 
         if ret==True:            
-            results = model(frame, conf=0.6)
+            results = model(frame, conf=0.4)
             frame = results[0].plot()
             # Extract bounding boxes, classes, names, and confidences
             boxes = results[0].boxes.xyxy.tolist()
@@ -173,9 +173,9 @@ def publish_message():
                     font = cv2.FONT_HERSHEY_SIMPLEX
                     cbx = int(cbx)
                     cby = int(cby)
-                    cv2.circle(frame, (325, 240), radius=0, color=(255, 255, 255), thickness=3)
-                    cv2.circle(frame, (325, 240), radius=radius, color=(0, 255, 255), thickness=3)
-                    cv2.circle(frame, (cbx, cby), radius=0, color=(0, 255, 255), thickness=3)
+                    cv2.circle(frame, (325, 240), radius=0, color=(255, 255, 255), thickness=1)
+                    cv2.circle(frame, (325, 240), radius=radius, color=(0, 255, 255), thickness=1)
+                    cv2.circle(frame, (cbx, cby), radius=0, color=(0, 255, 255), thickness=1)
                     cv2.line(frame, (325, 240), (cbx, cby),
                              color=(0, 0, 255), thickness=1)
                     cv2.line(frame, (325, 240), (325, 200),
@@ -214,6 +214,34 @@ def publish_message():
                     poseBall.position.y = 0.0
                     poseObs.position.x = 0.0
                     poseObs.position.y = 0.0
+
+                    cv2.putText(frame,'KIROSENA INTERFACE', 
+                                (50, 50), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
+                    cv2.putText(frame,'Angle Bola: '+' 0'+' deg', 
+                                (50, 65), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
+                    cv2.putText(frame,'Distance Bola px: '+' 0'+' px', 
+                                (50, 80), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
+                    cv2.putText(frame,'Distance Bola: '+' 0'+' cm', 
+                                (50, 95), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
+                    cv2.putText(frame,'Pixel X: '+' 0'+' px', 
+                                (50, 110), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
+                    cv2.putText(frame,'Pixel Y: '+' 0'+' px', 
+                                (50, 125), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
+                    cv2.putText(frame,'Real X: '+' 0'+' cm', 
+                                (50, 140), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
+                    cv2.putText(frame,'Real Y: '+' 0'+' cm', 
+                                (50, 155), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
+                    cv2.putText(frame,'FPS: '+str(fps), 
+                                (50, 170), font, 0.5,
+                                (0, 255, 255), 1, cv2.LINE_4)
 
 
             # Display the annotated frame

@@ -57,7 +57,7 @@ def encoder_callback(data):
     # vx = (2/3) * (v1 - 0.5 * v2 - 0.5 * v3)
     # vx = (v1 * math.cos(math.radians(30))) - (v2 * math.cos(math.radians(30)))
     vx = (v1-v2)/np.sqrt(3)
-    vy = (v1 + v2 - 2 * v3) / 3
+    vy = (v1 + v2 - 2 * v3) / 3 
     vth = ((v1 / robot_radius) + (v2 / robot_radius) + (v3 / robot_radius))/3
 
 # Subscriber to encoder data
